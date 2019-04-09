@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.everday.foregroundservice">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service android:name=".service.ClientService" />
+
+        <activity android:name=".activity.KeppActivity"
+            android:excludeFromRecents="true"
+            android:taskAffinity="com.everday.foregroundservice"
+            android:theme="@style/KeepTheme"></activity>
+        <service android:name=".service.ClientService$InnerService"/>
+        <service android:name=".service.ClientService"/>
+
+        <service android:name=".service.LocalService"
+            android:process=".local"/>
+        <service android:name=".service.LocalService1"
+            android:process=".local"/>
+        <service android:name=".service.RemoteService"
+            android:process=":remot"></service>
+        <!--<receiver android:name=".activity.KeepReceiver"/>-->
+    </application>
+
+</manifest>
